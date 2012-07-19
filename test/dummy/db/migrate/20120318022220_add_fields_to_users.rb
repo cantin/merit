@@ -3,7 +3,7 @@ class AddFieldsToUsers < ActiveRecord::Migration
     add_column :users, :sash_id, :integer
     add_column :users, :points, :integer, :default => 0
     add_column :users, :level, :integer, :default => 0
-    User.all.each{|user| user.update_attribute(:points, 0) } # Update existing entries
+    MessagingUser.all.each{|user| user.update_attribute(:points, 0) } # Update existing entries
   end
 
   def self.down

@@ -23,8 +23,8 @@ module Merit
   #   source (messaging_user_id) | action (method, value) | target (model, id) | processed
   #   1 | comment nil | List 8 | true
   #   1 | vote 3      | List 12 | true
-  #   3 | follow nil  | User 1 | false
-  #   X | create nil  | User #{generated_id} | false
+  #   3 | follow nil  | MessagingUser 1 | false
+  #   X | create nil  | MessagingUser #{generated_id} | false
   #   ______________________________________________________________
   #
   # Luego chequea las condiciones sincronizadamente, o mediante un proceso en

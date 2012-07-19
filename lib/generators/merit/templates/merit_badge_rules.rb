@@ -34,7 +34,7 @@ module Merit
       # end
 
       # Changes his name by one wider than 4 chars (arbitrary ruby code case)
-      # grant_on 'registrations#update', :badge => 'autobiographer', :temporary => true, :model_name => 'User' do |user|
+      # grant_on 'registrations#update', :badge => 'autobiographer', :temporary => true, :model_name => 'MessagingUser' do |user|
       #   user.name.length > 4
       # end
     end

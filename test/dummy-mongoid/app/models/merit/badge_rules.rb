@@ -41,7 +41,7 @@ module Merit
 
       # Changes his name by one wider than 4 chars (arbitrary ruby code and custom model_name)
       # This badge is temporary (user may lose it)
-      grant_on 'registrations#update', :badge => 'autobiographer', :temporary => true, :model_name => 'User' do |user|
+      grant_on 'registrations#update', :badge => 'autobiographer', :temporary => true, :model_name => 'MessagingUser' do |user|
         user.name.length > 4
       end
     end

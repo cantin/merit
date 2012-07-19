@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class MessagingUser < ActiveRecord::Base
   has_merit
 
   has_many :comments

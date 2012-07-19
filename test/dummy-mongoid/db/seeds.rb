@@ -1,6 +1,6 @@
-commenter = User.create(:name => 'the-commenter-guy')
-social = User.create(:name => 'social-skilled-man')
-bored  = User.create(:name => 'bored-or-speechless')
+commenter = MessagingUser.create(:name => 'the-commenter-guy')
+social = MessagingUser.create(:name => 'social-skilled-man')
+bored  = MessagingUser.create(:name => 'bored-or-speechless')
 
 (1..9).each do |i|
   Comment.create(

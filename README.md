@@ -35,7 +35,7 @@ holds. Badges may have levels, and may be temporary. Define rules on
 * `:level` for badge level
 * `:to` method name over target_object which obtains object to badge
 * `:model_name` (string) define controller's name if it differs from
-  the model (like `RegistrationsController` for `User` model).
+  the model (like `RegistrationsController` for `MessagingUser` model).
 * `:multiple` (boolean) badge may be granted multiple times
 * `:temporary` (boolean) if the receiver had the badge but the condition
   doesn't hold anymore, remove it. `false` by default (badges are kept
@@ -141,7 +141,7 @@ end
 
 * add an error handler for inexistent badges.
 * rails g merit MODEL_NAME shouldn't create general migrations again.
-* Abstract User (rule.rb#51 for instance) into a Merit option.
+* Abstract MessagingUser (rule.rb#51 for instance) into a Merit option.
 * Should namespace app/models into Merit module.
 * rescue ActiveRecord::... should depend on ORM used
 * :value parameter (for star voting for example) should be configurable

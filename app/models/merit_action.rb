@@ -21,7 +21,7 @@ class MeritAction
         point_rule = actions_to_point[action_name]
         point_rule[:to].each do |to|
           if to == :action_user
-            if !(target = User.find_by_id(messaging_user_id))
+            if !(target = MessagingUser.find_by_id(messaging_user_id))
               Rails.logger.warn "[merit] no user found to grant points"
               return
             end

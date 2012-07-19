@@ -1,4 +1,4 @@
-class User
+class MessagingUser
   include Mongoid::Document
   include Mongoid::Timestamps
 
