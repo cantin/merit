@@ -6,12 +6,12 @@ bored  = User.create(:name => 'bored-or-speechless')
   Comment.create(
     :name    => "Title #{i}",
     :comment => "Comment #{i}",
-    :user_id => social.id,
+    :messaging_user_id => social.id,
     :votes   => 3
   )
   Comment.create(
     :name    => "Title #{i}",
     :comment => "Comment #{i}",
-    :user_id => commenter.id
+    :messaging_user_id => commenter.id
   )
 end

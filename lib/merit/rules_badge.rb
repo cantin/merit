@@ -8,7 +8,7 @@ module Merit
   #
   # También se puede asignar medallas desde métodos en controladores:
   #
-  #   Badge.find(3).grant_to(current_user)
+  #   Badge.find(3).grant_to(current_messaging_user)
   #
   # Merit crea una tabla Badges similar a:
   #   ___________________________________________________
@@ -20,7 +20,7 @@ module Merit
   #
   # Y llena una tabla de acciones, del estilo de:
   #   ______________________________________________________________
-  #   source (user_id) | action (method, value) | target (model, id) | processed
+  #   source (messaging_user_id) | action (method, value) | target (model, id) | processed
   #   1 | comment nil | List 8 | true
   #   1 | vote 3      | List 12 | true
   #   3 | follow nil  | User 1 | false

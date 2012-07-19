@@ -1,7 +1,7 @@
 require "merit/models/#{Merit.orm}/merit_action"
 
 class MeritAction
-  attr_accessible :user_id, :action_method, :action_value, :had_errors, :target_model, :target_id, :processed, :log
+  attr_accessible :messaging_user_id, :action_method, :action_value, :had_errors, :target_model, :target_id, :processed, :log
 
   # Check rules defined for a merit_action
   def check_rules(defined_rules)
@@ -21,7 +21,7 @@ class MeritAction
         point_rule = actions_to_point[action_name]
         point_rule[:to].each do |to|
           if to == :action_user
-            if !(target = User.find_by_id(user_id))
+            if !(target = User.find_by_id(messaging_user_id))
               Rails.logger.warn "[merit] no user found to grant points"
               return
             end

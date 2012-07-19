@@ -64,7 +64,7 @@ end
 You may also grant badges "by hand":
 
 ```ruby
-Badge.find(3).grant_to(current_user)
+Badge.find(3).grant_to(current_messaging_user)
 ```
 
 ---

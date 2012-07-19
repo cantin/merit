@@ -26,7 +26,7 @@ class NavigationTest < ActiveSupport::IntegrationCase
       Comment.create(
         :name    => "Title #{i}",
         :comment => "Comment #{i}",
-        :user_id => user.id,
+        :messaging_user_id => user.id,
         :votes   => 8
       )
     end

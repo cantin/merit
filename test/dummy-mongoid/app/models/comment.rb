@@ -7,7 +7,7 @@ class Comment
   field :comment
   field :votes, :type => Integer, :default => 0
 
-  attr_accessible :name, :comment, :user_id, :votes
+  attr_accessible :name, :comment, :messaging_user_id, :votes
 
-  validates :name, :comment, :user_id, :presence => true
+  validates :name, :comment, :messaging_user_id, :presence => true
 end

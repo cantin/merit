@@ -20,7 +20,7 @@ module Merit
 
           # TODO: value should be configurable (now it's params[:value] set in the controller)
           merit_action_id = MeritAction.create(
-            :user_id       => current_user.try(:id),
+            :messaging_user_id       => current_messaging_user.try(:id),
             :action_method => action_name,
             :action_value  => params[:value],
             :had_errors    => target_object.try(:errors).try(:present?),
@@ -34,7 +34,7 @@ module Merit
 
             # Show flash msg?
             if (log = MeritAction.find(merit_action_id).log)
-              # Badges granted to current_user
+              # Badges granted to current_messaging_user
               granted = log.split('|').select{|log| log =~ /badge_granted_to_action_user/ }
               granted.each do |badge|
                 badge_id = badge.split(':').last.to_i

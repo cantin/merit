@@ -1,7 +1,7 @@
 class CreateMeritActions < ActiveRecord::Migration
   def self.up
     create_table :merit_actions do |t|
-      t.integer :user_id # source
+      t.integer :messaging_user_id # source
       t.string  :action_method
       t.integer :action_value
       t.boolean :had_errors

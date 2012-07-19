@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  def current_user
-    @current_user ||= User.first
+  def current_messaging_user
+    @current_messaging_user ||= User.first
   end
 end

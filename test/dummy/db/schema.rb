@@ -27,14 +27,14 @@ ActiveRecord::Schema.define(:version => 20120318022220) do
   create_table "comments", :force => true do |t|
     t.string   "name"
     t.text     "comment"
-    t.integer  "user_id"
+    t.integer  "messaging_user_id"
     t.integer  "votes",      :default => 0
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end
 
   create_table "merit_actions", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "messaging_user_id"
     t.string   "action_method"
     t.integer  "action_value"
     t.boolean  "had_errors"
