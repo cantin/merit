@@ -27,7 +27,7 @@ class MeritAction
             end
           else
             begin
-              target = target_object.send(to)
+              target = target_object("messaging_users").send(to)
             rescue NoMethodError
               Rails.logger.warn "[merit] No target_object found on check_rules."
               return
