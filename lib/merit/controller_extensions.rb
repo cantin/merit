@@ -10,7 +10,8 @@ module Merit
         point_rules = PointRules.new
         if badge_rules.defined_rules[action].present? || point_rules.actions_to_point[action].present?
           # TODO: target_object should be configurable (now it's singularized controller name)
-          target_object = instance_variable_get(:"@#{controller_name.singularize}")
+          # target_object = instance_variable_get(:"@#{controller_name.singularize}")
+          target_object =  current_messaging_user
           # Set target_id from params or from current instance variable
           target_id = params[:id] || target_object.try(:id)
           # id nil, or string (friendly_id); target_object found
