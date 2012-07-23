@@ -19,6 +19,8 @@ module Merit
             target_id = target_object.id
           end
 
+          params[:value] = point_rules.actions_to_point[action][:score] if point_rules.actions_to_point[action].present?
+
           # TODO: value should be configurable (now it's params[:value] set in the controller)
           merit_action_id = MeritAction.create(
             :messaging_user_id       => current_messaging_user.try(:id),

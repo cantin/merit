@@ -33,8 +33,10 @@ class MeritAction
               return
             end
           end
-          target.update_attribute(:points, target.points + point_rule[:score])
-          log!("points_granted:#{point_rule[:score]}")
+          if point_rule[:block] && point_rule[:block].call(target)
+            target.update_attribute(:points, target.points + point_rule[:score])
+            log!("points_granted:#{point_rule[:score]}")
+          end
         end
       end
     end

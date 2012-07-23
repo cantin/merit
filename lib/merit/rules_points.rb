@@ -13,7 +13,8 @@ module Merit
       actions.each do |action|
         actions_to_point[action] = {
           :to => targets,
-          :score => points
+          :score => points,
+          :block => block
         }
       end
     end
