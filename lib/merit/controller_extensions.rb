@@ -19,31 +19,31 @@ module Merit
             target_id = target_object.id
           end
 
-          params[:value] = point_rules.actions_to_point[action][:score] if point_rules.actions_to_point[action].present?
+          params[:point_value] = point_rules.actions_to_point[action].present? ? point_rules.actions_to_point[action][:score] : 0
 
           # TODO: value should be configurable (now it's params[:value] set in the controller)
-          merit_action_id = MeritAction.create(
+          merit_action = MeritAction.new(
             :messaging_user_id       => current_messaging_user.try(:id),
             :action_method => action_name,
-            :action_value  => params[:value],
+            :action_value  => params[:point_value],
             :had_errors    => target_object.try(:errors).try(:present?),
             :target_model  => controller_name,
             :target_id     => target_id
-          ).id
+          )
 
           # Check rules in after_filter?
           if Merit.checks_on_each_request
-            badge_rules.check_new_actions
+            badge_rules.check_new_actions(merit_action)
 
             # Show flash msg?
-            if (log = MeritAction.find(merit_action_id).log)
-              # Badges granted to current_messaging_user
-              granted = log.split('|').select{|log| log =~ /badge_granted_to_action_user/ }
-              granted.each do |badge|
-                badge_id = badge.split(':').last.to_i
-                flash[:merit] = t('merit.flashs.badge_granted', :badge => Badge.find(badge_id).name)
-              end
-            end
+            #if (log = MeritAction.find(merit_action_id).log)
+              ## Badges granted to current_messaging_user
+              #granted = log.split('|').select{|log| log =~ /badge_granted_to_action_user/ }
+              #granted.each do |badge|
+                #badge_id = badge.split(':').last.to_i
+                #flash[:merit] = t('merit.flashs.badge_granted', :badge => Badge.find(badge_id).name)
+              #end
+            #end
           end
         end
       end

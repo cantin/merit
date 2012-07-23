@@ -52,10 +52,11 @@ module Merit
     end
 
     # Check non processed actions and grant badges if applies
-    def check_new_actions
-      MeritAction.where(:processed => false).each do |merit_action|
-        merit_action.check_rules(defined_rules)
-      end
+    def check_new_actions(merit_action)
+      merit_action.check_rules(defined_rules)
+
+      #MeritAction.where(:processed => false).each do |merit_action|
+      #end
     end
 
     # Currently defined rules

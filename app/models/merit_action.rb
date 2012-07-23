@@ -52,11 +52,12 @@ class MeritAction
   end
 
   def log!(str)
+    self.save
     self.update_attribute :log, "#{self.log}#{str}|"
   end
 
   # Mark merit_action as processed
   def processed!
-    self.update_attribute :processed, true
+    self.update_attribute(:processed, true) if self.id != nil
   end
 end
